@@ -1,0 +1,32 @@
+.message {
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  max-width: 80%;
+  word-wrap: break-word;
+  display: flex;
+  flex-direction: column;
+}
+
+.messageContent {
+  margin-bottom: 5px;
+  white-space: pre-wrap;
+}
+
+.messagePositive {
+  background-color: lightgreen;
+}
+
+.messageNeutral {
+  background-color: lightgray;
+}
+
+.messageNegative {
+  background-color: lightcoral;
+}
+
+.messageAuthor {
+  font-size: 0.75rem;
+  color: #555;
+  text-align: right;
+}
