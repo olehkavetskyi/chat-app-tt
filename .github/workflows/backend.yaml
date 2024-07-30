@@ -28,14 +28,14 @@ jobs:
       
       # Install dependencies and build the solution
       - name: Install dependencies
-        run: dotnet restore ./../../RealTimeChatApp.sln.sln
+        run: dotnet restore ./RealTimeChatApp.sln.sln
 
       - name: Build the solution
-        run: dotnet build --configuration Release ./../../RealTimeChatApp.sln
+        run: dotnet build --configuration Release ./RealTimeChatApp.sln
 
       # Publish the API project
       - name: Publish API
-        run: dotnet publish ./../../Api/Api.csproj --configuration Release --output ./api_publish
+        run: dotnet publish ./Api/Api.csproj --configuration Release --output ./api_publish
 
       # Deploy to Azure Web App
       - name: Deploy to Azure Web App
