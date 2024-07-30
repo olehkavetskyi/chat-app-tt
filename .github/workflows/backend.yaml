@@ -28,7 +28,7 @@ jobs:
       
       # Install dependencies and build the solution
       - name: Install dependencies
-        run: dotnet restore ./RealTimeChatApp.sln.sln
+        run: dotnet restore ./RealTimeChatApp.sln
 
       - name: Build the solution
         run: dotnet build --configuration Release ./RealTimeChatApp.sln
