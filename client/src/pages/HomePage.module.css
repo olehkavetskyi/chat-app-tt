@@ -1,0 +1,13 @@
+.enterLink {
+  background-color: rgb(237, 237, 237);
+  padding: 5px 10px 5px 10px;
+  color: black;
+  border-radius: 5px;
+  border: 1px solid rgb(237, 237, 237);
+  transition: 0.25s;
+}
+
+.enterLink:hover {
+  color: black;
+  border-color: rgb(87, 87, 245);
+}

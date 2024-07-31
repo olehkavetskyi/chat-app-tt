@@ -1,18 +1,14 @@
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import styles from './HomePage.module.css';
 
-const Home = () => {
-    const navigate = useNavigate();
-
-    const navigateToChat = () => {
-        navigate('/chat');
-    };
+const HomePage = () => {
 
     return (
         <div className="appContainer">
             <h1>Welcome to the Chat App</h1>
-            <button onClick={navigateToChat}>Enter Chat</button>
+            <Link className={styles.enterLink} to="/chat">Enter Chat</Link>
         </div>
     );
 };
 
-export default Home;
+export default HomePage;
