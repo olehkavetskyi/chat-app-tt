@@ -21,7 +21,7 @@ public static class DependencyInjection
 
         services.AddDbContext<ChatDbContext>(options =>
         {
-            options.UseSqlServer(config.GetConnectionString("DefaultConnection"));
+            options.UseSqlServer(config["DbConnection"]);
         });
 
         services.AddScoped<IMessageRepository, MessageRepository>();
