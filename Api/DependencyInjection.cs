@@ -1,4 +1,6 @@
-﻿namespace Api;
+﻿using Microsoft.Azure.SignalR;
+
+namespace Api;
 
 public static class DependencyInjection
 {
