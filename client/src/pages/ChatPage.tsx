@@ -25,7 +25,7 @@ const ChatPage: React.FC = () => {
     useEffect(() => {
         const fetchMessages = async () => {
             try {
-                const response = await axios.get<MessageData[]>('chatappbd.azurewebsites.net/api/chat');
+                const response = await axios.get<MessageData[]>('https://chatappbd.azurewebsites.net/api/chat');
                 setMessages(response.data);
             } catch (error) {
                 console.error('Error fetching messages', error);
@@ -35,7 +35,7 @@ const ChatPage: React.FC = () => {
         fetchMessages();
 
         const newConnection = new HubConnectionBuilder()
-            .withUrl('chatappbd.azurewebsites.net/chatHub')
+            .withUrl('https://chatappbd.azurewebsites.net/chatHub')
             .withAutomaticReconnect()
             .build();
 
