@@ -19,7 +19,7 @@ if (!string.IsNullOrEmpty(keyVaultName))
 
 
 builder.Services
-    .AddApi()
+    .AddApi(builder.Configuration)
     .AddApplication()
     .AddInfrastructure(builder.Configuration);
 

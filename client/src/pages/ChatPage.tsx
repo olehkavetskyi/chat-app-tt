@@ -35,7 +35,7 @@ const ChatPage: React.FC = () => {
         fetchMessages();
 
         const newConnection = new HubConnectionBuilder()
-            .withUrl('https://chatappbd.azurewebsites.net/chatHub')
+            .withUrl('https://realtimechatapp.service.signalr.net/chatHub')
             .withAutomaticReconnect()
             .build();
 
