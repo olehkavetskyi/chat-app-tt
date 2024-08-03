@@ -3,9 +3,11 @@ using Azure;
 using Azure.AI.TextAnalytics;
 using Infrastructure.Data;
 using Infrastructure.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Identity.Web;
 
 namespace Infrastructure;
 
@@ -18,6 +20,9 @@ public static class DependencyInjection
         var credential = new AzureKeyCredential(apiKey!);
 
         services.AddSingleton(new TextAnalyticsClient(new Uri(endpoint!), credential));
+
+        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddMicrosoftIdentityWebApi(config.GetSection("AzureAd"));
 
         services.AddDbContext<ChatDbContext>(options =>
         {
