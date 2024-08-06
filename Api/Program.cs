@@ -3,7 +3,7 @@ using Api.Hubs;
 using Infrastructure;
 using Application;
 using Azure.Identity;
-using Microsoft.Azure.SignalR.Management;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
@@ -25,6 +25,16 @@ builder.Services
     .AddInfrastructure(builder.Configuration);
 
 builder.Services.AddSignalR();
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.WithOrigins(builder.Configuration["Origins"]!)
+               .AllowAnyHeader()
+               .AllowAnyMethod()
+               .AllowCredentials();
+    });
+});
 
 var app = builder.Build();
 

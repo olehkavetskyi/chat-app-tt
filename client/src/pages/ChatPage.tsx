@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import axios from '../api/axiosConfig';
+import axios from 'axios';
 import { HubConnection, HubConnectionBuilder, HubConnectionState } from '@microsoft/signalr';
 import Message from '../components/Message';
 import styles from './ChatPage.module.css';
 import { v4 as uuidv4 } from 'uuid';
 import { useNavigate } from 'react-router-dom';
-import { createSignalRConnection } from '../utils/signalrUtils';
 
 interface MessageData {
     id: string;
@@ -26,7 +25,7 @@ const ChatPage: React.FC = () => {
     useEffect(() => {
         const fetchMessages = async () => {
             try {
-                const response = await axios.get<MessageData[]>('/chat');
+                const response = await axios.get<MessageData[]>('https://chatappbd.azurewebsites.net/api/chat');
                 setMessages(response.data);
             } catch (error) {
                 console.error('Error fetching messages', error);
@@ -34,17 +33,13 @@ const ChatPage: React.FC = () => {
         };
 
         fetchMessages();
-        
-        const setupConnection = async () => {
-            try {
-                const newConnection = await createSignalRConnection();
-                setConnection(newConnection);
-            } catch (error) {
-                console.error('Error setting up connection:', error);
-            }
-        };
 
-        setupConnection();
+        const newConnection = new HubConnectionBuilder()
+            .withUrl('https://realtimechatapp.service.signalr.net/chatHub')
+            .withAutomaticReconnect()
+            .build();
+
+        setConnection(newConnection);
     }, []);
 
     useEffect(() => {
