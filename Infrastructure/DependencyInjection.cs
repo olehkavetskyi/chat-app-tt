@@ -21,9 +21,6 @@ public static class DependencyInjection
 
         services.AddSingleton(new TextAnalyticsClient(new Uri(endpoint!), credential));
 
-        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            .AddMicrosoftIdentityWebApi(config.GetSection("AzureAd"));
-
         services.AddDbContext<ChatDbContext>(options =>
         {
             options.UseSqlServer(config["DbConnection"]);
