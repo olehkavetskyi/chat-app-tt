@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import axios from 'axios';
 import { HubConnection, HubConnectionBuilder, HubConnectionState } from '@microsoft/signalr';
 import Message from '../components/Message';
 import styles from './ChatPage.module.css';
 import { v4 as uuidv4 } from 'uuid';
 import { useNavigate } from 'react-router-dom';
+import axiosInstance from '../api/axiosConfig';
 
 interface MessageData {
     id: string;
@@ -25,7 +25,7 @@ const ChatPage: React.FC = () => {
     useEffect(() => {
         const fetchMessages = async () => {
             try {
-                const response = await axios.get<MessageData[]>('https://chatappbd.azurewebsites.net/api/chat');
+                const response = await axiosInstance.get<MessageData[]>('/api/chat');
                 setMessages(response.data);
             } catch (error) {
                 console.error('Error fetching messages', error);

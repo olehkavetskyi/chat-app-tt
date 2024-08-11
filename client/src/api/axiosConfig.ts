@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const axiosInstance = axios.create({ // https://chatappbd.azurewebsites.net
-    baseURL: 'https://localhost:7154/api',  
+const axiosInstance = axios.create({ 
+    baseURL: 'https://chatappbd.azurewebsites.net',  
     headers: {
         'Content-Type': 'application/json',
     },
