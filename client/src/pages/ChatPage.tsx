@@ -78,6 +78,13 @@ const ChatPage: React.FC = () => {
         }
     };
 
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            sendMessage();
+        }
+    };
+
     const leaveChat = () => {
         if (connection) {
             connection.stop().then(() => navigate('/'));
@@ -103,11 +110,12 @@ const ChatPage: React.FC = () => {
                 <div ref={messagesEndRef} />
             </div>
             <div className={styles.inputContainer}>
-                <input
-                    type="text"
+                <textarea
                     className={styles.inputField}
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
+                    onKeyDown={handleKeyDown}
+                    rows={2}
                 />
                 <button className={styles.sendButton} onClick={sendMessage}>Send</button>
             </div>
