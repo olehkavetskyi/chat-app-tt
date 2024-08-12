@@ -16,17 +16,10 @@ public class ChatController : ControllerBase
         _chatService = chatService;
     }
 
-    [HttpGet]
+    [HttpGet("get-all")]
     public async Task<IActionResult> GetMessagesAsync()
     {
         var messages = await _chatService.GetMessagesAsync();
         return Ok(messages);
-    }
-
-
-    [HttpPost]
-    public async Task<Message> PostMessageAsync([FromBody] string content)
-    {
-        return await _chatService.ProcessMessageAsync(content);
     }
 }

@@ -25,7 +25,7 @@ const ChatPage: React.FC = () => {
     useEffect(() => {
         const fetchMessages = async () => {
             try {
-                const response = await axiosInstance.get<MessageData[]>('/api/chat');
+                const response = await axiosInstance.get<MessageData[]>('/api/chat/get-all');
                 setMessages(response.data);
             } catch (error) {
                 console.error('Error fetching messages', error);
