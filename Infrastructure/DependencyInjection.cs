@@ -3,11 +3,9 @@ using Azure;
 using Azure.AI.TextAnalytics;
 using Infrastructure.Data;
 using Infrastructure.Services;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Identity.Web;
 
 namespace Infrastructure;
 
