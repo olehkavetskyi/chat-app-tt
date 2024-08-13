@@ -4,8 +4,7 @@ const axiosInstance = axios.create({
     baseURL: 'https://chatappbd.azurewebsites.net',  
     headers: {
         'Content-Type': 'application/json',
-    },
-    timeout: 10000, 
+    }
 });
 
 axiosInstance.interceptors.request.use(
