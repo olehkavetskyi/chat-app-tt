@@ -138,4 +138,4 @@ Click **Add a firewall rule**, add name, and enter backend api in Start IP and E
 
 ## Links
 
-Deployed Application - https://white-river-01e1da10f.5.azurestaticapps.net
+Deployed Application - https://white-river-01e1da10f.5.azurestaticapps.net (deactivated)
